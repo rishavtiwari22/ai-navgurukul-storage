@@ -1,0 +1,359 @@
+.contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.contact-header {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.contact-header h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 24px;
+  font-family: 'Inter', sans-serif;
+}
+
+.highlight {
+  color: #FF5E41;
+  position: relative;
+  display: inline-block;
+}
+
+/* Animated wavy underline effect - matching the About page */
+.highlight::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  height: 3px;
+  width: 100%;
+  background-color: #FF5E41; 
+  animation: underlineAnimate 2s ease-in-out infinite;
+  border-radius: 2px;
+}
+
+@keyframes underlineAnimate {
+  0% {
+    transform: translateX(-5px) scaleX(0.95);
+  }
+  50% {
+    transform: translateX(5px) scaleX(1.05);
+  }
+  100% {
+    transform: translateX(-5px) scaleX(0.95);
+  }
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto 32px;
+  color: var(--text-color);
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.contact-info {
+  background-color: var(--light-bg);
+  padding: 40px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.icon {
+  font-size: 1.8rem;
+  color: #FF5E41;
+  min-width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.details h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.details p {
+  color: var(--text-color);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.social-links h3 {
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.social-icons {
+  display: flex;
+  gap: 16px;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #FF5E41;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-3px);
+  background-color: #E65439;
+}
+
+.contact-form-container {
+  background-color: var(--card-bg);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 12px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #FF5E41;
+  box-shadow: 0 0 0 3px rgba(255, 94, 65, 0.2);
+}
+
+.submit-btn {
+  margin-top: 10px;
+  background-color: #FF5E41;
+  color: white;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  align-self: flex-start;
+}
+
+.submit-btn:hover {
+  background-color: #E65439;
+  transform: translateY(-2px);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+.success-message {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.success-message h3 {
+  font-size: 1.8rem;
+  color: #FF5E41;
+  margin-bottom: 16px;
+}
+
+.success-message p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.map-container {
+  margin-top: 60px;
+  margin-bottom: 80px;
+}
+
+.map-container h2 {
+  font-size: 2rem;
+  margin-bottom: 24px;
+  font-weight: 700;
+}
+
+.google-map {
+  height: 450px;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-color);
+}
+
+.map-instructions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.map-instructions p {
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+.directions-link {
+  color: #FF5E41;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.directions-link:hover {
+  color: #E65439;
+  text-decoration: underline;
+}
+
+/* Remove the placeholder styles since we now have a real map */
+.map-placeholder {
+  display: none;
+}
+
+/* Dark mode adjustments */
+:root[class="dark"] .highlight {
+  color: #FF7A61;
+}
+
+:root[class="dark"] .highlight::after {
+  background-color: #FF7A61;
+}
+
+:root[class="dark"] .icon {
+  color: #FF7A61;
+}
+
+:root[class="dark"] .social-icon {
+  background-color: #FF7A61;
+}
+
+:root[class="dark"] .social-icon:hover {
+  background-color: #FF8A71;
+}
+
+:root[class="dark"] .form-group input:focus,
+:root[class="dark"] .form-group textarea:focus {
+  border-color: #FF7A61;
+  box-shadow: 0 0 0 3px rgba(255, 122, 97, 0.2);
+}
+
+:root[class="dark"] .submit-btn {
+  background-color: #FF7A61;
+}
+
+:root[class="dark"] .submit-btn:hover {
+  background-color: #FF8A71;
+}
+
+:root[class="dark"] .success-message h3 {
+  color: #FF7A61;
+}
+
+:root[class="dark"] .directions-link {
+  color: #FF7A61;
+}
+
+:root[class="dark"] .directions-link:hover {
+  color: #FF8A71;
+}
+
+:root[class="dark"] .google-map {
+  border-color: #444;
+}
+
+/* Make it responsive */
+@media (max-width: 992px) {
+  .contact-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-info {
+    order: 2;
+  }
+  
+  .contact-form-container {
+    order: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-header h1 {
+    font-size: 2.2rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .contact-info, 
+  .contact-form-container {
+    padding: 30px 20px;
+  }
+  
+  .submit-btn {
+    width: 100%;
+  }
+  
+  .google-map {
+    height: 350px;
+  }
+  
+  .map-instructions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}

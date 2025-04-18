@@ -1,0 +1,161 @@
+.experience-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+}
+
+.experience-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-top: 1.5rem;
+}
+
+.experience-header h1 {
+  margin-bottom: 2.5rem;
+  font-size: 2.5rem;
+  line-height: 1.3;
+  font-weight: 800;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Simplified animated highlight for CREATE text */
+.experience-header .highlight {
+  color: #FF5E41;
+  position: relative;
+  display: inline-block;
+  padding: 0 2px;
+}
+
+/* Simple, elegant underline animation */
+.experience-header .highlight::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 3px;
+  width: 100%;
+  background-color: #FF5E41;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(255, 94, 65, 0.3);
+  animation: underlineAppear 1.5s ease-out forwards;
+  transform-origin: left;
+}
+
+@keyframes underlineAppear {
+  0% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+/* Simple dark mode styles */
+:root[class="dark"] .experience-header .highlight {
+  color: #FF7A61;
+}
+
+:root[class="dark"] .experience-header .highlight::after {
+  background-color: #FF7A61;
+  box-shadow: 0 1px 3px rgba(255, 122, 97, 0.3);
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.tab {
+  padding: 0.6rem 1.25rem;
+  font-weight: 500;
+  cursor: pointer;
+  background: none;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  border-radius: 999px;
+  font-size: 0.95rem;
+}
+
+.tab.active {
+  background-color: #FF5E41;
+  color: white;
+  border-color: #FF5E41;
+  box-shadow: 0 4px 12px rgba(255, 94, 65, 0.25);
+}
+
+.tab:not(.active) {
+  color: var(--text-color);
+}
+
+.tab:not(.active):hover {
+  border-color: #FF5E41;
+  color: #FF5E41;
+  background-color: rgba(255, 94, 65, 0.05);
+}
+
+.experience-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  padding-top: 1rem;
+}
+
+/* Dark mode styles */
+:root[class="dark"] .tab.active {
+  background-color: #FF7A61;
+  border-color: #FF7A61;
+  box-shadow: 0 4px 12px rgba(255, 122, 97, 0.3);
+}
+
+:root[class="dark"] .tab:not(.active) {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+:root[class="dark"] .tab:not(.active):hover {
+  border-color: #FF7A61;
+  color: #FF7A61;
+  background-color: rgba(255, 122, 97, 0.1);
+}
+
+:root[class="dark"] .experience-header .highlight {
+  color: #FF7A61;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 1024px) {
+  .experience-container {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .experience-header h1 {
+    font-size: 2rem;
+  }
+  
+  .tabs {
+    gap: 0.75rem;
+  }
+  
+  .tab {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .experience-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .experience-header h1 {
+    font-size: 1.75rem;
+  }
+}

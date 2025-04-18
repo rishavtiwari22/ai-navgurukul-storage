@@ -1,0 +1,36 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --primary-color: #FF5E41;
+  --primary-hover: #E65439;
+  --card-bg: #ffffff;
+  --light-bg: #FFF8F7;
+  --border-color: #eeeeee;
+}
+
+.dark {
+  --bg-color: #1a1a1a;
+  --text-color: #ffffff;
+  --card-bg: #2d2d2d;
+  --light-bg: #2a2a2a;
+  --border-color: #444444;
+}
+
+.app {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  padding-top: 1rem;
+  flex-grow: 1;
+  overflow-y: auto; /* Allow scrolling in the main content area */
+}
+
+.content {
+  padding-top: 1rem;
+}
