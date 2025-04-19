@@ -1,0 +1,118 @@
+.admin-login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  padding: 20px;
+}
+
+.admin-login-card {
+  width: 100%;
+  max-width: 450px;
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  text-align: center;
+  border: 1px solid var(--border-color);
+}
+
+.admin-login-card h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: var(--text-color);
+}
+
+.login-subtitle {
+  color: var(--text-color);
+  opacity: 0.7;
+  margin-bottom: 30px;
+}
+
+.login-error {
+  background-color: #ffebee;
+  color: #f44336;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+}
+
+.login-form {
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text-color);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #FF5E41;
+  box-shadow: 0 0 0 3px rgba(255, 94, 65, 0.1);
+}
+
+.login-button {
+  width: 100%;
+  padding: 14px;
+  background-color: #FF5E41;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 10px;
+}
+
+.login-button:hover {
+  background-color: #E65439;
+}
+
+.login-help {
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: var(--text-color);
+  opacity: 0.6;
+}
+
+/* Dark mode adjustments */
+:root[class="dark"] .login-error {
+  background-color: rgba(244, 67, 54, 0.15);
+  color: #ff8a80;
+}
+
+:root[class="dark"] .form-group input:focus {
+  border-color: #FF7A61;
+  box-shadow: 0 0 0 3px rgba(255, 122, 97, 0.2);
+}
+
+:root[class="dark"] .login-button {
+  background-color: #FF7A61;
+}
+
+:root[class="dark"] .login-button:hover {
+  background-color: #FF8A71;
+}

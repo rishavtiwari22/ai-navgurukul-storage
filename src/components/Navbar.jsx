@@ -1,48 +1,79 @@
-import { Link, useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { NavLink, Link } from 'react-router-dom';
 import { useTheme } from './ThemeContext';
 import '../styles/Navbar.css';
 
 const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
-  const location = useLocation();
-  
-  // Helper function to check if the link is active
-  const isActive = (path) => {
-    return location.pathname === path ? 'active' : '';
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
-  
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
-    <nav className="navbar w-full">
-      <div className="container mx-auto px-4 py-4 flex items-center">
-        {/* Left side - Logo */}
+    <header className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+      <div className="container">
+        {/* Left - Logo */}
         <div className="logo-container">
-          <Link to="/" className="logo text-2xl font-bold">
-            NG <span className="italic">Labs</span>
+          <Link to="/" className="logo">
+            Navgurukul Labs
           </Link>
         </div>
         
-        {/* Middle - Navigation Links */}
+        {/* Center - Navigation Links */}
         <div className="nav-container">
-          <ul className="nav-links flex">
-            <li><Link to="/" className={isActive('/')}>Projects</Link></li>
-            <li><Link to="/about" className={isActive('/about')}>About Us</Link></li>
-            <li><Link to="/contact" className={isActive('/contact')}>Contact</Link></li>
-            <li><Link to="/blog" className={isActive('/blog')}>Blog</Link></li>
+          <ul className="nav-links">
+            <li><NavLink to="/" onClick={closeMenu}>Experiences</NavLink></li>
+            <li><NavLink to="/about" onClick={closeMenu}>About</NavLink></li>
+            <li><NavLink to="/contact" onClick={closeMenu}>Contact</NavLink></li>
+            <li><NavLink to="/blog" onClick={closeMenu}>Blog</NavLink></li>
           </ul>
         </div>
         
-        {/* Right - Theme Toggle */}
-        <div className="theme-toggle-container">
+        {/* Right - Admin and Theme Toggle */}
+        <div className="nav-controls">
+          <NavLink to="/admin" onClick={closeMenu} className="admin-link">Admin</NavLink>
           <button 
-            onClick={toggleTheme} 
-            className="theme-toggle p-2 rounded-full"
+            className="theme-toggle" 
+            onClick={toggleTheme}
             aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
           >
             {theme === 'light' ? '🌙' : '☀️'}
           </button>
+          
+          {/* Mobile menu toggle button */}
+          <button className="menu-toggle" onClick={toggleMenu} aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+        
+        {/* Mobile Navigation Menu */}
+        <div className={`nav-menu ${isMenuOpen ? 'open' : ''}`}>
+          <NavLink to="/" onClick={closeMenu}>Experiences</NavLink>
+          <NavLink to="/about" onClick={closeMenu}>About</NavLink>
+          <NavLink to="/contact" onClick={closeMenu}>Contact</NavLink>
+          <NavLink to="/blog" onClick={closeMenu}>Blog</NavLink>
+          <NavLink to="/admin" onClick={closeMenu} className="admin-link">Admin</NavLink>
         </div>
       </div>
-    </nav>
+    </header>
   );
 };
 

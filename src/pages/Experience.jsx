@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { experiences } from '../data/experienceData';
+import { useContent } from '../context/ContentContext';
 import ExperienceCard from '../components/ExperienceCard';
 import '../styles/Experience.css';
 
 const Experience = () => {
+  const { experiences } = useContent();
   const [activeCategory, setActiveCategory] = useState('All');
 
   const filteredExperiences = activeCategory === 'All'

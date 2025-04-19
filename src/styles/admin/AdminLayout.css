@@ -1,0 +1,41 @@
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+}
+
+.admin-content {
+  flex: 1;
+  margin-left: 260px;
+  padding: 30px;
+  max-width: calc(100% - 260px);
+  overflow-x: auto;
+}
+
+.admin-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .admin-layout {
+    flex-direction: column;
+  }
+  
+  .admin-sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  
+  .admin-content {
+    margin-left: 0;
+    max-width: 100%;
+  }
+}
